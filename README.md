@@ -1,23 +1,25 @@
 The main steps in enricment analysis 
 
 ```
-1- Load the input CSV file and aggregate intensities by protein using the maximum value.
+- Load CSV file and keep the max intensity per protein.
 
-2- Run STRING enrichment analysis on protein (psm per conditions >0). 
+- Select proteins with intensity > 0 for each condition.
 
-3- Merge enrichment results across all conditions by term, description, and category.
+- Run STRING enrichment analysis for each condition.
 
-4- Create a unique combined gene list for each enriched term across conditions.
+- Combine enrichment results by matching term and category.
 
-5- Calculate the mean intensity values for each experimental condition.
+- Collect all genes involved in each term across conditions.
 
-6- Compute Differential Abundance values (DAvs) between each pair of conditions.
+- Calculate average intensity for each protein per condition.
 
-7- Perform MANOVA to identify enriched terms significantly differing across groups.
+- Compute DAv (difference in abundance) between conditions.
 
-8- Filter significant terms and merge them with intensity, DAv, category, and gene data.
+- Use MANOVA to find terms with significant changes.
 
-9- Export the final combined results as an Excel file. 
+- Keep significant terms and add related intensity, DAv, and gene info.
+
+- Save everything to an Excel file.
 ```
  MSstats Differential Expression Workflow
 ``` 
