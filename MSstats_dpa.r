@@ -1,6 +1,3 @@
-# Differential Protein Abundance using MSstats
-# ==========================================
-
 # Load required packages
 library(MSstats)
 library(tidyverse)
@@ -8,24 +5,24 @@ library(tidyverse)
 # Step 1: Load your protein-level data
 data_raw <- read.csv("protein_counts.csv")
 
-# Remove duplicated gene names (like repeated C4A)
-data_clean <- data_raw[!duplicated(data_raw$Gene), ]
-
+# Remove duplicated Pro_id names (like repeated C4A)
+data_clean <- data_raw[!duplicated(data_raw$Pro_id), ]
 # Remove rows with all zeros or NAs across replicates
 data_clean <- data_clean %>%
-  filter(if_any(-Gene, ~ !is.na(.) & . != 0))  # keep rows with at least one non-zero
+  filter(if_any(-Pro_id, ~ !is.na(.) & . != 0))  # keep rows with at least one non-zero
+
 
 data_clean <- data_clean %>%
-  group_by(Gene) %>%
+  group_by(Pro_id) %>%
   summarise(across(where(is.numeric), max, na.rm = TRUE))
 
 # Step 2: Reshape data to long format
 data_long <- data_clean %>%
-  pivot_longer(cols = -Gene, names_to = "Replicate", values_to = "Intensity") %>%
+  pivot_longer(cols = -Pro_id, names_to = "Replicate", values_to = "Intensity") %>%
   mutate(
     Condition = ifelse(grepl("^E_", Replicate), "E", "F"),
     BioReplicate = Replicate,
-    ProteinName = Gene
+    ProteinName = Pro_id
   )
 
 # Step 3: Add dummy but unique values required by MSstats
