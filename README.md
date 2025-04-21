@@ -1,4 +1,4 @@
-the main steps in enricment analysis 
+The main steps in enricment analysis 
 
 ```
 1- Load the input CSV file and aggregate intensities by protein using the maximum value.
