@@ -1,3 +1,16 @@
+ MSstats Differential Expression Workflow
+``` 
+- Remove duplicates, keeping the row with the highest intensity per protein.
+- Remove rows with all zero or NA values.
+- Convert to long format using pivot_longer().
+- Add MSstats columns (e.g., Condition, BioReplicate).
+- Run dataProcess() to clean and normalize data.
+- Set up comparison (e.g., F vs E).
+- Run groupComparison() for differential analysis.
+- Export results to CSV.
+- Create volcano plot to visualize differences.
+```
+
 The main steps in enricment analysis 
 
 ```
@@ -12,16 +25,6 @@ The main steps in enricment analysis
 - Keep significant terms and add related intensity, DAv, and gene info.
 - Save everything to an Excel file.
 ```
- MSstats Differential Expression Workflow
-``` 
-- Remove duplicates, keeping the row with the highest intensity per protein.
-- Remove rows with all zero or NA values.
-- Convert to long format using pivot_longer().
-- Add MSstats columns (e.g., Condition, BioReplicate).
-- Run dataProcess() to clean and normalize data.
-- Set up comparison (e.g., F vs E).
-- Run groupComparison() for differential analysis.
-- Export results to CSV.
-- Create volcano plot to visualize differences.
-```
+
+
 Here is an example to build a dendrogram plot [here](https://github.com/isky20/PLOT_enrichment_TREE2/tree/main).
