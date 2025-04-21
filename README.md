@@ -19,3 +19,23 @@ The main steps in enricment analysis
 
 9- Export the final combined results as an Excel file. 
 ```
+ MSstats Differential Expression Workflow
+``` 
+Step 1: Load required packages (MSstats, tidyverse) and your protein_counts.csv file.
+
+Step 2: Remove duplicate protein IDs by keeping the row with the highest intensity per protein.
+
+Step 3: Remove rows where all intensity values are zero or NA.
+
+Step 4: Reshape the data from wide to long format using pivot_longer().
+
+Step 5: Add required MSstats columns (e.g., PeptideSequence, PrecursorCharge, Run, etc.).
+
+Step 6: Run dataProcess() to normalize and summarize the data.
+
+Step 7: Define the comparison matrix for conditions (e.g., F vs E).
+
+Step 8: Run groupComparison() to perform differential analysis.
+
+Step 9: Save the results to CSV and generate a volcano plot.
+```
