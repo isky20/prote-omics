@@ -10,9 +10,14 @@ data_raw <- read.csv("protein_counts.csv")
 
 # Remove duplicated gene names (like repeated C4A)
 data_clean <- data_raw[!duplicated(data_raw$Gene), ]
+
 # Remove rows with all zeros or NAs across replicates
 data_clean <- data_clean %>%
   filter(if_any(-Gene, ~ !is.na(.) & . != 0))  # keep rows with at least one non-zero
+
+data_clean <- data_clean %>%
+  group_by(Gene) %>%
+  summarise(across(where(is.numeric), max, na.rm = TRUE))
 
 # Step 2: Reshape data to long format
 data_long <- data_clean %>%
