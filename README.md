@@ -21,15 +21,13 @@ The main steps in enricment analysis
 ```
  MSstats Differential Expression Workflow
 ``` 
-Step 1: Load required packages (MSstats, tidyverse) and your protein_counts.csv file.
-
-Step 2: Remove duplicate protein IDs by keeping the row with the highest intensity per protein.
+Step 1: Remove duplicate protein IDs by keeping the row with the highest intensity per protein.
 
 Step 3: Remove rows where all intensity values are zero or NA.
 
 Step 4: Reshape the data from wide to long format using pivot_longer().
 
-Step 5: Add required MSstats columns (e.g., PeptideSequence, PrecursorCharge, Run, etc.).
+Step 5: Add required MSstats columns.
 
 Step 6: Run dataProcess() to normalize and summarize the data.
 
