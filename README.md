@@ -1,6 +1,6 @@
  MSstats Differential Expression Workflow
 ``` 
-- Remove duplicates, keeping the row with the highest intensity per protein.
+- Remove duplicates, keeping the row with the highest intensity per psm.
 - Remove rows with all zero or NA values.
 - Convert to long format using pivot_longer().
 - Add MSstats columns (e.g., Condition, BioReplicate).
@@ -10,6 +10,7 @@
 - Export results to CSV.
 - Create volcano plot to visualize differences.
 ```
+
 
 The main steps in enricment analysis 
 
