@@ -120,16 +120,7 @@ This pipeline performs functional enrichment analysis for proteins across multip
 ### 💾 13. Save Final Results
 - Save the final merged table into an Excel file (`enrichment_analysis_results.xlsx`).
 
----
 
-# 🚀 Example Commands
-
-_(Inside R, or using Rscript if saved as scripts)_
-
-### Run Differential Protein Abundance Analysis:
-
-```r
-# Inside R
-source("run_protein_abundance_MANOVA.R")
-
+```
 Here is an example to build a dendrogram plot [here](https://github.com/isky20/PLOT_enrichment_TREE2/tree/main).
+```
